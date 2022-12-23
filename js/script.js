@@ -1,7 +1,4 @@
-/*
-#Milestone 3
-Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-*/
+//DATI
 const data = [
     
     { id: 1,
@@ -90,18 +87,16 @@ for (let i = 0; i < data.length; i++){
 //Inserisco in pagina
 postList.innerHTML= post;
 
-
 //Prendo il bottone e il numero dei likes
 for (let i = 1; i <= data.length; i++){
-
-    const button = document.getElementById([i]);
-    const likes = document.getElementsByClassName('.js-likes-counter');
     
+    const button = document.getElementById([i]);
+    let likeCounter = document.getElementById('like-counter-'[i]);
+    
+    //Aggiungo la classe quando il butone viene colorato
     button.addEventListener('click', function(){
         button.classList.toggle('like-button--liked')
-        newLikes = likes + '1';
-        likes.innerHTML+= `${data[i].likes}` + 1;
+
     })    
     
 }
-
