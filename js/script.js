@@ -1,8 +1,7 @@
 /*
-#Milestone 2
-Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
+#Milestone 3
+Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
 */
-
 const data = [
     
     { id: 1,
@@ -77,12 +76,12 @@ for (let i = 0; i < data.length; i++){
         <div class="post__footer">
           <div class="likes js-likes">
             <div class="likes__cta">
-              <button class="like-button js-like-button" href="#" data-postid="1">
+              <button class="like-button js-like-button" href="#" id="${data[i].id}">
                 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                 <span class="like-button__label">Mi Piace</span>
               </button>
             </div>
-            <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${data[i].likes}</b> persone</div>
+            <div class="likes__counter">Piace a <b id="like-counter-${data[i].id}" class="js-likes-counter">${data[i].likes}</b> persone</div>
           </div>
         </div>
       </div>
@@ -90,3 +89,19 @@ for (let i = 0; i < data.length; i++){
 }
 //Inserisco in pagina
 postList.innerHTML= post;
+
+
+//Prendo il bottone e il numero dei likes
+for (let i = 1; i <= data.length; i++){
+
+    const button = document.getElementById([i]);
+    const likes = document.getElementsByClassName('.js-likes-counter');
+    
+    button.addEventListener('click', function(){
+        button.classList.toggle('like-button--liked')
+        newLikes = likes + '1';
+        likes.innerHTML+= `${data[i].likes}` + 1;
+    })    
+    
+}
+
